@@ -52,20 +52,21 @@ footer img{height:30px;display:block;margin-bottom:8px}
 <body>
 <header><div class="w">
 <h1>Clear Dent <span>|</span> Painel de publicações</h1>
-<p>Tudo o que foi publicado no Instagram e no Facebook da Clear Dent entre 21 e 30 de outubro de 2026 e como as pessoas reagiram. Números conferidos nos dias 26/10 e 30/10; os mais recentes ainda podem crescer.</p>
+<p>Tudo o que foi publicado no Instagram e no Facebook da Clear Dent entre 19 e 30 de outubro de 2026 e como as pessoas reagiram. Números conferidos no Meta Business Suite em 30/10; os mais recentes ainda podem crescer.</p>
 </div></header>
 <main><div class="w">
 
 <section class="how">
   <h2>Como ler este painel</h2>
-  <p class="sub" style="margin-bottom:10px"><b>Vezes visto</b> é quantas vezes a publicação foi aberta e assistida. <b>Pessoas que viram</b> é quantas pessoas diferentes chegaram a ela (a mesma pessoa pode ver mais de uma vez, por isso esse número é menor).</p>
+  <p class="sub" style="margin-bottom:10px"><b>Pessoas que viram</b> é quantas pessoas diferentes chegaram a cada publicação. <b>Vezes visto</b> é quantas vezes ela foi aberta e assistida (a mesma pessoa pode ver mais de uma vez, por isso esse número é maior). Onde só aparece &ldquo;pessoas&rdquo;, o Instagram ainda não informou as vezes visto.</p>
   <p class="sub" style="margin:0"><b>Story</b>: publicação que fica no ar por 24 horas. <b>Reel</b>: vídeo curto. <b>Carrossel</b>: post com várias imagens que se deslizam. <b>Foto</b>: post com uma única imagem.</p>
 </section>
+
 <div class="grid kpis" id="kpis"></div>
 
 <section>
-  <h2>Quantas vezes cada publicação foi vista (Instagram)</h2>
-  <p class="sub">Barra forte: vezes que foi vista. Barra clara: pessoas diferentes que viram. Da mais antiga para a mais recente. Toque na capa para ampliar.</p>
+  <h2>Quantas pessoas viram cada publicação (Instagram)</h2>
+  <p class="sub">Da mais antiga para a mais recente. Toque na capa para ampliar.</p>
   <div class="leg">
     <span><i style="background:var(--story)"></i>Story</span><span><i style="background:var(--reel)"></i>Reel</span>
     <span><i style="background:var(--carr)"></i>Carrossel</span><span><i style="background:var(--foto)"></i>Foto</span>
@@ -75,14 +76,14 @@ footer img{height:30px;display:block;margin-bottom:8px}
 
 <div class="grid two" style="margin-bottom:16px">
   <section style="margin:0">
-    <h2>Qual tipo de publicação é mais visto</h2>
-    <p class="sub">Média de vezes que cada publicação foi vista, por tipo (Instagram).</p>
+    <h2>Qual tipo de publicação chega a mais gente</h2>
+    <p class="sub">Média de pessoas que viram cada publicação, por tipo (Instagram).</p>
     <div id="fmt"></div>
   </section>
   <section style="margin:0">
     <h2>Facebook</h2>
-    <p class="sub">Vezes que cada publicação foi vista no Facebook. Os Stories do Facebook não informam esse dado.</p>
-    <table><thead><tr><th>Peça</th><th>Data</th><th class="num">Vezes visto</th></tr></thead>
+    <p class="sub">Os Stories do Facebook não informam esse dado.</p>
+    <table><thead><tr><th>Publicação</th><th>Data</th><th class="num">Vezes visto</th><th class="num">Pessoas</th></tr></thead>
     <tbody id="fb"></tbody></table>
   </section>
 </div>
@@ -102,19 +103,14 @@ footer img{height:30px;display:block;margin-bottom:8px}
 
 <section>
   <h2>O que esses números nos dizem</h2>
-  <ul class="ins">
-    <li><b>O carrossel foi o post que mais chamou atenção.</b> Foi visto 116 vezes por 45 pessoas diferentes e continuou crescendo nos dias seguintes (na primeira conferência eram 85).</li>
-    <li><b>Os Stories são o que mais gera visualizações.</b> Os dois melhores, com 144 vezes visto cada, saíram em dias e horários diferentes. Por isso não dá para atribuir o resultado ao horário; vamos comparar o assunto deles com o dos demais.</li>
-    <li><b>O Reel de 28/10, feito com fotos, foi visto bem menos</b> (8 vezes) que o Reel de 21/10 (37 vezes). Vamos acompanhar os próximos vídeos para entender o que prende mais a atenção.</li>
-    <li><b>O público é local e feminino.</b> Nilópolis, Rio de Janeiro e Mesquita somam 72% dos seguidores, o que combina com a região onde os anúncios vão aparecer.</li>
-  </ul>
+  <ul class="ins" id="ins"></ul>
 </section>
 
 <section class="pend">
   <h2>Resultados que ainda vão chegar</h2>
   <ul class="ins">
     <li>Story de sábado, 31/10, ao meio-dia (ainda vai ao ar).</li>
-    <li>Carrossel de 30/10, às 19h (acabou de ser publicado e ainda não tem número).</li>
+    <li>O carrossel de 30/10 acabou de ser publicado e seus números ainda estão crescendo.</li>
     <li>O Instagram leva alguns dias para fechar os números de cada publicação. Atualizaremos este painel com os resultados finais.</li>
   </ul>
 </section>
@@ -122,53 +118,84 @@ footer img{height:30px;display:block;margin-bottom:8px}
 </div></main>
 <footer><div class="w">
 <img src="../assets/logo-marcelo-oliveira.svg" alt="Marcelo Oliveira, Marketing Digital e IA" onerror="this.style.display='none'">
-Painel elaborado por Marcelo Oliveira, Marketing Digital e IA. Fonte: dados oficiais do Instagram e do Facebook, conferidos em 26/10 e 30/10/2026.
+Painel elaborado por Marcelo Oliveira, Marketing Digital e IA. Fonte: dados oficiais do Instagram e do Facebook (Meta Business Suite), conferidos em 30/10/2026.
 </div></footer>
 
 <script>
-// d = data, f = formato, t = título, v = visualizações, r = alcance
+// d data, h hora, f formato, t título, i capa, p pessoas que viram, v vezes visto (quando informado), n observação
 var P=[
- {d:"21/10",h:"18h09",f:"Story",t:"Story",v:50,r:48},
- {d:"21/10",h:"19h",f:"Reel",i:"reel-21-10",t:"Reel",v:37,r:23},
- {d:"22/10",h:"15h08",f:"Foto",i:"perfil-22-10",t:"Foto de perfil",v:12,r:7},
- {d:"22/10",h:"19h",f:"Story",i:"story-22-10",t:"Story",v:49,r:47},
- {d:"23/10",h:"17h59",f:"Story",t:"Story",v:144,r:126},
- {d:"23/10",h:"19h",f:"Carrossel",i:"carrossel-23-10",t:"Carrossel",v:116,r:45},
- {d:"24/10",h:"12h",f:"Story",i:"story-24-10",t:"Story",v:65,r:61},
- {d:"26/10",h:"18h",f:"Foto",i:"foto-26-10",t:"Foto",v:38,r:16},
- {d:"27/10",h:"19h",f:"Story",i:"story-27-10",t:"Story",v:144,r:127},
- {d:"28/10",h:"19h",f:"Reel",i:"reel-28-10",t:"Reel com fotos",v:8,r:6},
- {d:"29/10",h:"18h",f:"Story",i:"story-29-10",t:"Story",v:95,r:88}
+ {d:"19/10",h:"",f:"Story",t:"Story (vídeo de 46 s)",i:"story-19-10",p:456},
+ {d:"20/10",h:"00h12",f:"Story",t:"Story",i:"story-20-10",p:273,n:"3 cliques no link"},
+ {d:"21/10",h:"10h56",f:"Story",t:"Story (vídeo de 39 s)",i:"story-21-1056",p:129},
+ {d:"21/10",h:"17h34",f:"Story",t:"Story 1 da sequência",i:"story-21-r85",p:85},
+ {d:"21/10",h:"17h34",f:"Story",t:"Story 2 da sequência",i:"story-21-r74",p:74},
+ {d:"21/10",h:"17h34",f:"Story",t:"Story 3 da sequência",i:"story-21-r73",p:73},
+ {d:"21/10",h:"17h35",f:"Story",t:"Story 4 da sequência",i:"story-21-r59",p:59},
+ {d:"21/10",h:"17h35",f:"Story",t:"Story 5 da sequência",i:"story-21-r57b",p:57},
+ {d:"21/10",h:"17h35",f:"Story",t:"Story 6 da sequência",i:"story-21-r64",p:64},
+ {d:"21/10",h:"17h35",f:"Story",t:"Story 7 da sequência",i:"story-21-r58",p:58},
+ {d:"21/10",h:"17h59",f:"Story",t:"Story 8 da sequência",i:"story-21-r57a",p:57},
+ {d:"21/10",h:"18h09",f:"Story",t:"Story 9 da sequência",i:"story-21-r50",p:50},
+ {d:"21/10",h:"19h",f:"Reel",t:"Reel “Seu filho tem medo do dentista?”",i:"reel-21-10",p:26,v:44},
+ {d:"22/10",h:"15h08",f:"Foto",t:"Nova foto de perfil",i:"perfil-22-10",p:7,v:12},
+ {d:"22/10",h:"19h",f:"Story",t:"Story",i:"story-22-10",p:47,v:49},
+ {d:"23/10",h:"17h59",f:"Story",t:"Story com foto de atendimento",i:"story-23-10",p:126,v:144},
+ {d:"23/10",h:"19h",f:"Carrossel",t:"Carrossel “Aparelho: mito e verdade”",i:"carrossel-23-10",p:45,v:116},
+ {d:"24/10",h:"12h",f:"Story",t:"Story",i:"story-24-10",p:61,v:65},
+ {d:"26/10",h:"18h",f:"Foto",t:"Foto “Fio dental”",i:"foto-26-10",p:16,v:38},
+ {d:"27/10",h:"19h",f:"Story",t:"Story",i:"story-27-10",p:127,v:144},
+ {d:"28/10",h:"19h",f:"Reel",t:"Reel com fotos “Cada criança tem o seu tempo”",i:"reel-28-10",p:6,v:10},
+ {d:"29/10",h:"18h",f:"Story",t:"Story",i:"story-29-10",p:99},
+ {d:"30/10",h:"19h",f:"Carrossel",t:"Carrossel “Dia das Bruxas”",i:"carrossel-30-10",p:11,v:40}
 ];
-var FB=[["Reel","21/10",35],["Reel com fotos","28/10",16],["Carrossel","23/10",7],["Foto","26/10",6]];
+var FB=[
+ ["Nova foto da página","20/10",19,13],
+ ["Nova capa da página","20/10",0,1],
+ ["Reel “Seu filho tem medo do dentista?”","21/10",40,38],
+ ["Nova foto de perfil","22/10",22,10],
+ ["Carrossel “Aparelho: mito e verdade”","23/10",17,9],
+ ["Foto “Fio dental”","26/10",6,5],
+ ["Reel com fotos","28/10",16,14],
+ ["Carrossel “Dia das Bruxas”","30/10",6,1]
+];
 var CID=[["Nilópolis",32.7],["Rio de Janeiro",29.2],["Mesquita",10.4],["S. J. de Meriti",8],["Nova Iguaçu",6.9]];
 var COR={Story:"#00717a",Reel:"#0a2f35",Carrossel:"#00afb8",Foto:"#b8b9bb"};
+var WD={"19/10":"seg","20/10":"ter","21/10":"qua","22/10":"qui","23/10":"sex","24/10":"sáb","26/10":"seg","27/10":"ter","28/10":"qua","29/10":"qui","30/10":"sex"};
 function $(i){return document.getElementById(i)}
 function sum(a,k){return a.reduce(function(s,x){return s+x[k]},0)}
-var tot=sum(P,"v"),st=P.filter(function(x){return x.f=="Story"}),fe=P.filter(function(x){return x.f!="Story"});
-var best=P.reduce(function(a,b){return b.v>a.v?b:a});
-$("kpis").innerHTML=
- k(P.length,"publicações no Instagram")+
- k(tot,"vezes que as publicações foram vistas",1)+
- k(sum(st,"v"),"vezes visto nos Stories ("+st.length+" Stories)")+
- k(sum(fe,"v"),"vezes visto no feed e nos Reels ("+fe.length+" publicações)")+
- k(best.v,"maior resultado: "+best.f+" de "+best.d);
-function th(x){return x.i?'<a class="thl" href="capas/'+x.i+'.webp" target="_blank" rel="noopener"><img class="th" loading="lazy" src="capas/'+x.i+'.webp" alt="Capa: '+x.t+' de '+x.d+'"></a>':'<div class="th no">sem capa</div>'}
+function fmt(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,".")}
+var st=P.filter(function(x){return x.f=="Story"}),fe=P.filter(function(x){return x.f!="Story"});
+var best=P.reduce(function(a,b){return b.p>a.p?b:a});
 function k(n,l,h){return '<div class="k'+(h?' hl':'')+'"><b>'+n+'</b><small>'+l+'</small></div>'}
-var mx=Math.max.apply(null,P.map(function(x){return x.v}));
+$("kpis").innerHTML=
+ k(P.length,"publicações no Instagram ("+st.length+" Stories e "+fe.length+" no feed)")+
+ k(fmt(sum(P,"p")),"pessoas alcançadas, somando cada publicação",1)+
+ k(fmt(sum(st,"p")),"nos Stories")+
+ k(fmt(sum(fe,"p")),"no feed e nos Reels")+
+ k(best.p,"maior resultado: "+best.f+" de "+best.d);
+function th(x){return x.i?'<a class="thl" href="capas/'+x.i+'.webp" target="_blank" rel="noopener"><img class="th" loading="lazy" src="capas/'+x.i+'.webp" alt="Capa: '+x.t+' de '+x.d+'"></a>':'<div class="th no">sem capa</div>'}
+var mx=Math.max.apply(null,P.map(function(x){return x.p}));
 $("bars").innerHTML=P.map(function(x){
- return '<div class="row">'+th(x)+'<div class="n">'+x.d+' · '+x.h+'<em>'+x.t+'</em></div>'+
- '<div class="bar"><span class="r" style="width:'+(x.r/mx*100)+'%;background:'+COR[x.f]+'"></span>'+
- '<span class="v" style="width:'+(x.v/mx*100)+'%;background:'+COR[x.f]+';opacity:.9"></span></div>'+
- '<div class="v"><b>'+x.v+'</b> <small>vistas</small><br><small>'+x.r+' pessoas</small></div></div>'}).join("");
-var F={};P.forEach(function(x){(F[x.f]=F[x.f]||[]).push(x.v)});
+ var sub=x.v?'<br><small>'+x.v+' vezes visto</small>':(x.n?'<br><small>'+x.n+'</small>':'');
+ return '<div class="row">'+th(x)+'<div class="n">'+x.d+(x.h?' · '+x.h:'')+'<em>'+x.t+'</em></div>'+
+ '<div class="bar"><span style="width:'+(x.p/mx*100)+'%;background:'+COR[x.f]+'"></span></div>'+
+ '<div class="v"><b>'+x.p+'</b> <small>pessoas</small>'+sub+'</div></div>'}).join("");
+var F={};P.forEach(function(x){(F[x.f]=F[x.f]||[]).push(x.p)});
 var fm=Object.keys(F).map(function(n){var a=F[n];return {n:n,m:Math.round(a.reduce(function(s,x){return s+x},0)/a.length),c:a.length}}).sort(function(a,b){return b.m-a.m});
 var fx=fm[0].m;
 $("fmt").innerHTML=fm.map(function(x){return '<div class="row" style="grid-template-columns:92px 1fr 70px"><div class="n">'+x.n+'<em>'+x.c+(x.c>1?' publicações':' publicação')+'</em></div><div class="bar"><span style="width:'+(x.m/fx*100)+'%;background:'+COR[x.n]+'"></span></div><div class="v"><b>'+x.m+'</b></div></div>'}).join("");
-$("fb").innerHTML=FB.map(function(x){return '<tr><td>'+x[0]+'</td><td>'+x[1]+'</td><td class="num">'+x[2]+'</td></tr>'}).join("");
-$("hor").innerHTML=st.concat([]).map(function(x){var w={"21/10":"qua","22/10":"qui","23/10":"sex","24/10":"sáb","27/10":"ter","29/10":"qui"}[x.d];
- return '<tr><td>'+th(x)+'</td><td>'+w+' '+x.d+'</td><td>'+x.h+'</td><td class="num">'+x.v+'</td><td class="num">'+x.r+'</td></tr>'}).join("");
+$("fb").innerHTML=FB.map(function(x){return '<tr><td>'+x[0]+'</td><td>'+x[1]+'</td><td class="num">'+x[2]+'</td><td class="num">'+x[3]+'</td></tr>'}).join("");
+$("hor").innerHTML=st.filter(function(x){return ["22/10","23/10","24/10","27/10","29/10"].indexOf(x.d)>-1}).map(function(x){
+ return '<tr><td>'+th(x)+'</td><td>'+WD[x.d]+' '+x.d+'</td><td>'+x.h+'</td><td class="num">'+(x.v||"—")+'</td><td class="num">'+x.p+'</td></tr>'}).join("");
 $("cid").innerHTML=CID.map(function(x){return '<div class="row" style="grid-template-columns:118px 1fr 56px"><div class="n">'+x[0]+'</div><div class="bar"><span style="width:'+(x[1]/34*100)+'%;background:#00afb8"></span></div><div class="v"><b>'+String(x[1]).replace(".",",")+'%</b></div></div>'}).join("");
+$("ins").innerHTML=[
+ '<b>Os Stories são o que mais chega às pessoas.</b> Os '+st.length+' Stories somam '+fmt(sum(st,"p"))+' pessoas alcançadas, contra '+fmt(sum(fe,"p"))+' nas '+fe.length+' publicações do feed e Reels.',
+ '<b>Os primeiros Stories foram os que chegaram a mais gente:</b> 456 pessoas em 19/10 e 273 em 20/10. O de 20/10 ainda gerou 3 cliques no link.',
+ '<b>A foto real de um atendimento (Story de 23/10) chegou a 126 pessoas,</b> bem mais que os Stories de 22/10 (47) e 24/10 (61). Vale testar mais conteúdos do dia a dia da clínica.',
+ '<b>O carrossel foi o melhor post do feed.</b> O de 23/10 foi visto 116 vezes por 45 pessoas e continuou crescendo nos dias seguintes.',
+ '<b>O Reel de 28/10, feito com fotos, chegou a poucas pessoas</b> (6), contra 26 do Reel de 21/10. Vamos acompanhar os próximos vídeos para entender o que prende mais a atenção.',
+ '<b>O público é local e feminino.</b> Nilópolis, Rio de Janeiro e Mesquita somam 72% dos seguidores, o que combina com a região onde os anúncios vão aparecer.'
+].map(function(t){return '<li>'+t+'</li>'}).join("");
 </script>
 </body>
 </html>
