@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Clear Dent | Painel de publicações</title>
+<style>
+:root{--bg:#f6f4ee;--card:#fff;--ink:#2b2b28;--mut:#7a766b;--line:#e7e2d4;--y:#F2C01E;--yd:#C99700;--d:#3B3B38;
+--story:#C99700;--reel:#3B3B38;--carr:#F2C01E;--foto:#a9a493}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{background:var(--d);color:#fff;padding:28px 20px 24px}
+.w{max-width:980px;margin:0 auto}
+header h1{margin:0 0 4px;font-size:24px;letter-spacing:.2px}header h1 span{color:var(--y)}
+header p{margin:0;color:#d8d5c8;font-size:14px}
+main{padding:20px 16px 40px}
+.grid{display:grid;gap:12px}
+.kpis{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin-bottom:16px}
+.k{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.k b{display:block;font-size:30px;line-height:1.1;color:var(--d)}.k small{color:var(--mut);font-size:12.5px}
+.k.hl{background:var(--y);border-color:var(--y)}.k.hl small{color:#4a3d00}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px;margin-bottom:16px}
+h2{margin:0 0 2px;font-size:17px}.sub{margin:0 0 14px;color:var(--mut);font-size:13px}
+.leg{display:flex;flex-wrap:wrap;gap:14px;margin:0 0 12px;font-size:12.5px;color:var(--mut)}
+.leg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.row{display:grid;grid-template-columns:118px 1fr 74px;gap:10px;align-items:center;padding:5px 0}
+.row .n{font-size:12.5px;line-height:1.25}.row .n em{display:block;font-style:normal;color:var(--mut);font-size:11.5px}
+.bar{height:20px;background:#f1eee3;border-radius:6px;position:relative;overflow:hidden}
+.bar span{position:absolute;left:0;top:0;bottom:0;border-radius:6px}
+.bar span.r{opacity:.38;z-index:0}.bar span.v{z-index:1}
+.row .v{text-align:right;font-variant-numeric:tabular-nums;font-size:13px}.row .v small{color:var(--mut)}
+.two{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:7px 6px;border-bottom:1px solid var(--line);text-align:left}th{color:var(--mut);font-weight:600;font-size:12px}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tag{display:inline-block;font-size:11px;padding:1px 8px;border-radius:99px;background:#f1eee3}
+.ins li{margin:0 0 8px}.ins{padding-left:18px;margin:0}
+.pend{background:#fff8dd;border-color:#ecd98a}
+footer{background:var(--d);color:#bdb9aa;padding:18px 16px;font-size:12.5px}
+footer img{height:30px;display:block;margin-bottom:8px}
+@media(max-width:560px){.row{grid-template-columns:96px 1fr 62px}.k b{font-size:26px}}
+</style>
+</head>
+<body>
+<header><div class="w">
+<h1>Clear Dent <span>|</span> Painel de publicações</h1>
+<p>Instagram @clinica_clear_dent e Facebook, de 21/10 a 30/10/2026. Dados lidos dos Insights em 26/10 e 30/10; a leitura de 30/10 é parcial.</p>
+</div></header>
+<main><div class="w">
+
+<div class="grid kpis" id="kpis"></div>
+
+<section>
+  <h2>Visualizações por peça (Instagram)</h2>
+  <p class="sub">Barra cheia: visualizações. Barra clara: contas alcançadas. Ordem cronológica.</p>
+  <div class="leg">
+    <span><i style="background:var(--story)"></i>Story</span><span><i style="background:var(--reel)"></i>Reel</span>
+    <span><i style="background:var(--carr)"></i>Carrossel</span><span><i style="background:var(--foto)"></i>Foto</span>
+  </div>
+  <div id="bars"></div>
+</section>
+
+<div class="grid two" style="margin-bottom:16px">
+  <section style="margin:0">
+    <h2>Por formato</h2>
+    <p class="sub">Média de visualizações por peça (Instagram).</p>
+    <div id="fmt"></div>
+  </section>
+  <section style="margin:0">
+    <h2>Facebook</h2>
+    <p class="sub">Visualizações. Stories do Facebook estão sem Insights ativos.</p>
+    <table><thead><tr><th>Peça</th><th>Data</th><th class="num">Visualizações</th></tr></thead>
+    <tbody id="fb"></tbody></table>
+  </section>
+</div>
+
+<section>
+  <h2>Horário de publicação</h2>
+  <p class="sub">Teste de 19h x 12h e depois 18h. O horário sozinho não explica o resultado dos Stories.</p>
+  <table><thead><tr><th>Story</th><th>Dia</th><th>Hora</th><th class="num">Visualizações</th><th class="num">Alcance</th></tr></thead>
+  <tbody id="hor"></tbody></table>
+</section>
+
+<section>
+  <h2>Quem está vendo (Instagram, 26/10)</h2>
+  <p class="sub">1.882 seguidores. 87,2% mulheres; 25 a 44 anos somam cerca de 65%.</p>
+  <div id="cid"></div>
+</section>
+
+<section>
+  <h2>Leitura dos dados</h2>
+  <ul class="ins">
+    <li><b>Carrossel é o melhor formato de feed.</b> O de 23/10 chegou a 116 visualizações e 45 contas alcançadas e ainda subiu após a primeira leitura (85 para 116).</li>
+    <li><b>Stories puxam o volume.</b> Os dois maiores (144 e 144) vieram em dias e horários diferentes (sexta 17h59 e terça 19h), então o horário sozinho não explica a diferença; vale comparar o conteúdo dessas peças com o das demais.</li>
+    <li><b>O Reel adaptado com fotos rendeu bem menos</b> que o de 21/10 (8 contra 37 visualizações). Vale esperar os vídeos reais da clínica antes de repetir esse formato.</li>
+    <li><b>Público local e feminino.</b> Nilópolis, Rio e Mesquita somam 72% da audiência. O raio de 8 km do anúncio está coerente com isso.</li>
+  </ul>
+</section>
+
+<section class="pend">
+  <h2>Ainda sem dado</h2>
+  <ul class="ins">
+    <li>Story de sábado 31/10 às 12h (teste de horário).</li>
+    <li>Carrossel de 30/10 às 19h.</li>
+    <li>Nova leitura dos Insights após 31/10, quando a Meta troca “alcance” por “visualizadores”, pode alterar a comparação com as peças anteriores.</li>
+  </ul>
+</section>
+
+</div></main>
+<footer><div class="w">
+<img src="../assets/logo-marcelo-oliveira.svg" alt="Marcelo Oliveira, Marketing Digital e IA" onerror="this.style.display='none'">
+Painel elaborado por Marcelo Oliveira, Marketing Digital e IA. Fonte: Insights do Instagram e do Facebook, lidos em 26/10 e 30/10/2026.
+</div></footer>
+
+<script>
+// d = data, f = formato, t = título, v = visualizações, r = alcance
+var P=[
+ {d:"21/10",h:"18h09",f:"Story",t:"Story",v:50,r:48},
+ {d:"21/10",h:"19h",f:"Reel",t:"Reel",v:37,r:23},
+ {d:"22/10",h:"15h08",f:"Foto",t:"Foto de perfil",v:12,r:7},
+ {d:"22/10",h:"19h",f:"Story",t:"Story",v:49,r:47},
+ {d:"23/10",h:"17h59",f:"Story",t:"Story",v:144,r:126},
+ {d:"23/10",h:"19h",f:"Carrossel",t:"Carrossel",v:116,r:45},
+ {d:"24/10",h:"12h",f:"Story",t:"Story",v:65,r:61},
+ {d:"26/10",h:"18h",f:"Foto",t:"Foto",v:38,r:16},
+ {d:"27/10",h:"19h",f:"Story",t:"Story",v:144,r:127},
+ {d:"28/10",h:"19h",f:"Reel",t:"Reel adaptado",v:8,r:6},
+ {d:"29/10",h:"18h",f:"Story",t:"Story",v:95,r:88}
+];
+var FB=[["Reel","21/10",35],["Reel adaptado","28/10",16],["Carrossel","23/10",7],["Foto","26/10",6]];
+var CID=[["Nilópolis",32.7],["Rio de Janeiro",29.2],["Mesquita",10.4],["S. J. de Meriti",8],["Nova Iguaçu",6.9]];
+var COR={Story:"#C99700",Reel:"#3B3B38",Carrossel:"#F2C01E",Foto:"#a9a493"};
+function $(i){return document.getElementById(i)}
+function sum(a,k){return a.reduce(function(s,x){return s+x[k]},0)}
+var tot=sum(P,"v"),st=P.filter(function(x){return x.f=="Story"}),fe=P.filter(function(x){return x.f!="Story"});
+var best=P.reduce(function(a,b){return b.v>a.v?b:a});
+$("kpis").innerHTML=
+ k(P.length,"peças publicadas no Instagram")+
+ k(tot,"visualizações somadas",1)+
+ k(sum(st,"v"),"visualizações em Stories ("+st.length+" peças)")+
+ k(sum(fe,"v"),"visualizações no feed e Reels ("+fe.length+" peças)")+
+ k(best.v,"maior peça: "+best.f+" de "+best.d);
+function k(n,l,h){return '<div class="k'+(h?' hl':'')+'"><b>'+n+'</b><small>'+l+'</small></div>'}
+var mx=Math.max.apply(null,P.map(function(x){return x.v}));
+$("bars").innerHTML=P.map(function(x){
+ return '<div class="row"><div class="n">'+x.d+' · '+x.h+'<em>'+x.t+'</em></div>'+
+ '<div class="bar"><span class="r" style="width:'+(x.r/mx*100)+'%;background:'+COR[x.f]+'"></span>'+
+ '<span class="v" style="width:'+(x.v/mx*100)+'%;background:'+COR[x.f]+';opacity:.9"></span></div>'+
+ '<div class="v"><b>'+x.v+'</b> <small>/ '+x.r+'</small></div></div>'}).join("");
+var F={};P.forEach(function(x){(F[x.f]=F[x.f]||[]).push(x.v)});
+var fm=Object.keys(F).map(function(n){var a=F[n];return {n:n,m:Math.round(a.reduce(function(s,x){return s+x},0)/a.length),c:a.length}}).sort(function(a,b){return b.m-a.m});
+var fx=fm[0].m;
+$("fmt").innerHTML=fm.map(function(x){return '<div class="row" style="grid-template-columns:92px 1fr 70px"><div class="n">'+x.n+'<em>'+x.c+(x.c>1?' peças':' peça')+'</em></div><div class="bar"><span style="width:'+(x.m/fx*100)+'%;background:'+COR[x.n]+'"></span></div><div class="v"><b>'+x.m+'</b></div></div>'}).join("");
+$("fb").innerHTML=FB.map(function(x){return '<tr><td>'+x[0]+'</td><td>'+x[1]+'</td><td class="num">'+x[2]+'</td></tr>'}).join("");
+$("hor").innerHTML=st.concat([]).map(function(x){var w={"21/10":"qua","22/10":"qui","23/10":"sex","24/10":"sáb","27/10":"ter","29/10":"qui"}[x.d];
+ return '<tr><td><span class="tag">Story</span></td><td>'+w+' '+x.d+'</td><td>'+x.h+'</td><td class="num">'+x.v+'</td><td class="num">'+x.r+'</td></tr>'}).join("");
+$("cid").innerHTML=CID.map(function(x){return '<div class="row" style="grid-template-columns:118px 1fr 56px"><div class="n">'+x[0]+'</div><div class="bar"><span style="width:'+(x[1]/34*100)+'%;background:#C99700"></span></div><div class="v"><b>'+String(x[1]).replace(".",",")+'%</b></div></div>'}).join("");
+</script>
+</body>
+</html>
