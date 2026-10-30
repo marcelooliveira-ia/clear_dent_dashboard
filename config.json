@@ -8,11 +8,11 @@
  "logo_rodape": "assets/logo-marcelo-oliveira.svg",
  "whatsapp_marcelo": "5521990800215",
  "cores": {
-  "destaque": "#F2C01E",
-  "dourado": "#C99700",
+  "destaque": "#00AFB8",
+  "dourado": "#00717A",
   "series": [
-   "#3B3B38",
-   "#C99700"
+   "#00717A",
+   "#00AFB8"
   ],
   "plataformas": {}
  },

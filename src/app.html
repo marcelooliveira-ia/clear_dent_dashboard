@@ -212,10 +212,10 @@ dash.draw('cards',(el)=>{
   const ring=document.createElement('div');ring.className='gauge';
   const C=2*Math.PI*42,off=C*(1-Math.min(1,r.uso));
   const sv=d3.select(ring).append('svg').attr('viewBox','0 0 100 100').attr('aria-hidden','true');
-  sv.append('circle').attr('cx',50).attr('cy',50).attr('r',42).attr('fill','none').attr('stroke','#EDE7DC').attr('stroke-width',10);
+  sv.append('circle').attr('cx',50).attr('cy',50).attr('r',42).attr('fill','none').attr('stroke','#E6F7F8').attr('stroke-width',10);
   const arc=sv.append('circle').attr('class','arcr').attr('cx',50).attr('cy',50).attr('r',42).attr('fill','none').attr('stroke',col).attr('stroke-width',10).attr('stroke-linecap','round').attr('transform','rotate(-90 50 50)').attr('stroke-dasharray',C).style('stroke-dashoffset',(MO&&first)?C:off);
-  sv.append('text').attr('x',50).attr('y',52).attr('text-anchor','middle').attr('fill','#2B2B29').style('font-size','17px').style('font-weight','700').text(pct(r.uso));
-  sv.append('text').attr('x',50).attr('y',65).attr('text-anchor','middle').attr('fill','#6B665E').style('font-size','8px').text('da verba');
+  sv.append('text').attr('x',50).attr('y',52).attr('text-anchor','middle').attr('fill','#0A2F35').style('font-size','17px').style('font-weight','700').text(pct(r.uso));
+  sv.append('text').attr('x',50).attr('y',65).attr('text-anchor','middle').attr('fill','#6D6D6F').style('font-size','8px').text('da verba');
   if(MO&&first){whenIn(el,()=>{setTimeout(()=>{arc.style('stroke-dashoffset',off);},120+i*160);});}
   const m=document.createElement('div');m.className='pc-cpl';
   const s1=document.createElement('small');s1.textContent='Custo por lead';s1.appendChild(info(T.cpl));
