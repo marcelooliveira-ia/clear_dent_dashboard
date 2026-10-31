@@ -28,7 +28,7 @@ h2{margin:0 0 2px;font:400 21px/1.2 var(--serif);color:var(--yd)}.sub{margin:0 0
 .leg{display:flex;flex-wrap:wrap;gap:14px;margin:0 0 12px;font-size:12.5px;color:var(--mut)}
 .leg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
 .row{display:grid;grid-template-columns:44px 104px 1fr 84px;gap:10px;align-items:center;padding:5px 0}
-.th{width:44px;height:56px;border-radius:10px;object-fit:cover;object-position:top;background:var(--t50);display:block;border:1px solid var(--line)}
+.th{width:44px;height:78px;border-radius:10px;object-fit:cover;object-position:top;background:var(--t50);display:block;border:1px solid var(--line)}
 .th.no{display:flex;align-items:center;justify-content:center;font-size:9px;line-height:1.1;color:var(--mut);text-align:center;padding:2px}
 a.thl{display:block}
 .row .n{font-size:12.5px;line-height:1.25}.row .n em{display:block;font-style:normal;color:var(--mut);font-size:11.5px}
@@ -46,7 +46,7 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
 .pend{background:var(--t50);border-color:var(--t200)}
 footer{background:var(--ink);color:#b8c9cc;padding:20px 16px;font-size:12.5px}
 footer img{height:30px;display:block;margin-bottom:8px}
-@media(max-width:560px){.row{grid-template-columns:38px 80px 1fr 76px}.row .v small{white-space:nowrap}.th{width:38px;height:50px}.k b{font-size:26px}}
+@media(max-width:560px){.row{grid-template-columns:38px 80px 1fr 76px}.row .v small{white-space:nowrap}.th{width:38px;height:68px}.k b{font-size:26px}}
 </style>
 </head>
 <body>
@@ -58,7 +58,7 @@ footer img{height:30px;display:block;margin-bottom:8px}
 
 <section class="how">
   <h2>Como ler este painel</h2>
-  <p class="sub" style="margin-bottom:10px"><b>Pessoas que viram</b> é quantas pessoas diferentes chegaram a cada publicação. <b>Vezes visto</b> é quantas vezes ela foi aberta e assistida (a mesma pessoa pode ver mais de uma vez, por isso esse número é maior). Onde só aparece &ldquo;pessoas&rdquo;, o Instagram ainda não informou as vezes visto.</p>
+  <p class="sub" style="margin-bottom:10px"><b>Pessoas que viram</b> é quantas pessoas diferentes chegaram a cada publicação. <b>Vezes visto</b> é quantas vezes ela foi aberta e assistida (a mesma pessoa pode ver mais de uma vez, por isso esse número é maior).</p>
   <p class="sub" style="margin:0"><b>Story</b>: publicação que fica no ar por 24 horas. <b>Reel</b>: vídeo curto. <b>Carrossel</b>: post com várias imagens que se deslizam. <b>Foto</b>: post com uma única imagem.</p>
 </section>
 
@@ -124,18 +124,18 @@ Painel elaborado por Marcelo Oliveira, Marketing Digital e IA. Fonte: dados ofic
 <script>
 // d data, h hora, f formato, t título, i capa, p pessoas que viram, v vezes visto (quando informado), n observação
 var P=[
- {d:"19/10",h:"",f:"Story",t:"Story (vídeo de 46 s)",i:"story-19-10",p:456},
- {d:"20/10",h:"00h12",f:"Story",t:"Story",i:"story-20-10",p:273,n:"3 cliques no link"},
- {d:"21/10",h:"10h56",f:"Story",t:"Story (vídeo de 39 s)",i:"story-21-1056",p:129},
- {d:"21/10",h:"17h34",f:"Story",t:"Story 1 da sequência",i:"story-21-r85",p:85},
- {d:"21/10",h:"17h34",f:"Story",t:"Story 2 da sequência",i:"story-21-r74",p:74},
- {d:"21/10",h:"17h34",f:"Story",t:"Story 3 da sequência",i:"story-21-r73",p:73},
- {d:"21/10",h:"17h35",f:"Story",t:"Story 4 da sequência",i:"story-21-r59",p:59},
- {d:"21/10",h:"17h35",f:"Story",t:"Story 5 da sequência",i:"story-21-r57b",p:57},
- {d:"21/10",h:"17h35",f:"Story",t:"Story 6 da sequência",i:"story-21-r64",p:64},
- {d:"21/10",h:"17h35",f:"Story",t:"Story 7 da sequência",i:"story-21-r58",p:58},
- {d:"21/10",h:"17h59",f:"Story",t:"Story 8 da sequência",i:"story-21-r57a",p:57},
- {d:"21/10",h:"18h09",f:"Story",t:"Story 9 da sequência",i:"story-21-r50",p:50},
+ {d:"19/10",h:"09h03",f:"Story",t:"Story em vídeo (46 s)",i:"story-19-10",p:456,v:519},
+ {d:"20/10",h:"00h12",f:"Story",t:"Story “Como chegar”",i:"story-20-10",p:273,v:326,n:"3 cliques no link"},
+ {d:"21/10",h:"10h56",f:"Story",t:"Story em vídeo (39 s)",i:"story-21-1056",p:129,v:152},
+ {d:"21/10",h:"17h34",f:"Story",t:"Story “Sua primeira consulta”",i:"story-21-r85",p:85,v:106},
+ {d:"21/10",h:"17h34",f:"Story",t:"Story “Ortodontia”",i:"story-21-r74",p:74,v:90},
+ {d:"21/10",h:"17h34",f:"Story",t:"Story “Clareamento”",i:"story-21-r73",p:73,v:87},
+ {d:"21/10",h:"17h35",f:"Story",t:"Story “Ortopedia funcional”",i:"story-21-r59",p:59,v:65},
+ {d:"21/10",h:"17h35",f:"Story",t:"Story “Odontopediatria”",i:"story-21-r57b",p:57,v:63},
+ {d:"21/10",h:"17h35",f:"Story",t:"Story “Cuidado de rotina”",i:"story-21-r64",p:64,v:80},
+ {d:"21/10",h:"17h35",f:"Story",t:"Story da sequência de 21/10",i:"",p:58,v:68},
+ {d:"21/10",h:"17h59",f:"Story",t:"Story “Conheça nossa clínica”",i:"story-21-r57a",p:57,v:68},
+ {d:"21/10",h:"18h09",f:"Story",t:"Story “Ortopedia funcional”",i:"story-21-r50",p:50,v:52},
  {d:"21/10",h:"19h",f:"Reel",t:"Reel “Seu filho tem medo do dentista?”",i:"reel-21-10",p:26,v:44},
  {d:"22/10",h:"15h08",f:"Foto",t:"Nova foto de perfil",i:"perfil-22-10",p:7,v:12},
  {d:"22/10",h:"19h",f:"Story",t:"Story",i:"story-22-10",p:47,v:49},
@@ -145,7 +145,7 @@ var P=[
  {d:"26/10",h:"18h",f:"Foto",t:"Foto “Fio dental”",i:"foto-26-10",p:16,v:38},
  {d:"27/10",h:"19h",f:"Story",t:"Story",i:"story-27-10",p:127,v:144},
  {d:"28/10",h:"19h",f:"Reel",t:"Reel com fotos “Cada criança tem o seu tempo”",i:"reel-28-10",p:6,v:10},
- {d:"29/10",h:"18h",f:"Story",t:"Story",i:"story-29-10",p:99},
+ {d:"29/10",h:"18h",f:"Story",t:"Story",i:"story-29-10",p:99,v:107},
  {d:"30/10",h:"19h",f:"Carrossel",t:"Carrossel “Dia das Bruxas”",i:"carrossel-30-10",p:11,v:40}
 ];
 var FB=[
@@ -176,7 +176,7 @@ $("kpis").innerHTML=
 function th(x){return x.i?'<a class="thl" href="capas/'+x.i+'.webp" target="_blank" rel="noopener"><img class="th" loading="lazy" src="capas/'+x.i+'.webp" alt="Capa: '+x.t+' de '+x.d+'"></a>':'<div class="th no">sem capa</div>'}
 var mx=Math.max.apply(null,P.map(function(x){return x.p}));
 $("bars").innerHTML=P.map(function(x){
- var sub=x.v?'<br><small>'+x.v+' vezes visto</small>':(x.n?'<br><small>'+x.n+'</small>':'');
+ var sub=(x.v?'<br><small>'+x.v+' vezes visto</small>':'')+(x.n?'<br><small>'+x.n+'</small>':'');
  return '<div class="row">'+th(x)+'<div class="n">'+x.d+(x.h?' · '+x.h:'')+'<em>'+x.t+'</em></div>'+
  '<div class="bar"><span style="width:'+(x.p/mx*100)+'%;background:'+COR[x.f]+'"></span></div>'+
  '<div class="v"><b>'+x.p+'</b> <small>pessoas</small>'+sub+'</div></div>'}).join("");
