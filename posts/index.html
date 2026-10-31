@@ -43,6 +43,13 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
 .tag{display:inline-block;font-size:11px;padding:1px 8px;border-radius:99px;background:var(--t50);color:var(--yd)}
 .ins li{margin:0 0 8px}.ins{padding-left:18px;margin:0}
 .how{background:#fff}
+.cmp .blk{margin:0 0 18px}.cmp .blk h3{margin:0 0 8px;font:600 14px/1.3 var(--sans,inherit);color:var(--ink)}
+.cmp .r{display:grid;grid-template-columns:150px 1fr 120px;gap:10px;align-items:center;padding:6px 0;border-top:1px solid var(--line)}
+.cmp .r:first-of-type{border-top:0}.cmp .l{font-size:13px;line-height:1.3}.cmp .l em{display:block;font-style:normal;color:var(--mut);font-size:11.5px}
+.cmp .bb{display:grid;gap:4px}.cmp .b{height:12px;border-radius:99px;background:var(--t50);position:relative}.cmp .b span{position:absolute;left:0;top:0;bottom:0;border-radius:99px}
+.cmp .n{text-align:right;font-size:12.5px;line-height:1.35}.cmp .n b{font-size:14px}.cmp .up{color:var(--yd);font-weight:600}
+.cmp .key{display:flex;gap:14px;font-size:12.5px;color:var(--mut);margin:0 0 12px}.cmp .key i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+@media(max-width:560px){.cmp .r{grid-template-columns:1fr}.cmp .n{text-align:left}}
 .pend{background:var(--t50);border-color:var(--t200)}
 footer{background:var(--ink);color:#b8c9cc;padding:20px 16px;font-size:12.5px}
 footer img{height:30px;display:block;margin-bottom:8px}
@@ -63,6 +70,13 @@ footer img{height:30px;display:block;margin-bottom:8px}
 </section>
 
 <div class="grid kpis" id="kpis"></div>
+
+<section class="cmp">
+  <h2>O perfil está crescendo?</h2>
+  <p class="sub">Comparamos os 15 dias antes do início do trabalho (30/09 a 14/10) com os 15 dias depois (15/10 a 29/10). Dados do Instagram e do Facebook; 30/10 ainda não fechou.</p>
+  <div class="key"><span><i style="background:#b3e7ea"></i>Antes (30/09 a 14/10)</span><span><i style="background:#00717a"></i>Depois (15/10 a 29/10)</span></div>
+  <div id="growth"></div>
+</section>
 
 <section>
   <h2>Quantas pessoas viram cada publicação (Instagram)</h2>
@@ -158,6 +172,18 @@ var FB=[
  ["Reel com fotos","28/10",16,14],
  ["Carrossel “Dia das Bruxas”","30/10",6,1]
 ];
+var G=[
+ {t:"Instagram @clinica_clear_dent",rows:[
+  {l:"Visitas ao perfil",s:"Pessoas que abriram o perfil",a:132,b:172},
+  {l:"Vezes visto",s:"Soma de todas as publicações",a:2324,b:3458},
+  {l:"Novos seguidores",s:"Quem começou a seguir",a:27,b:26}
+ ],note:"Total de seguidores: 1.869 em 14/10 e 1.881 em 29/10 (mais 12). O total sobe menos que os novos seguidores porque algumas pessoas também deixam de seguir."},
+ {t:"Facebook Clear Dent - Dentista em Nilópolis",rows:[
+  {l:"Visitas à página",s:"Pessoas que abriram a página",a:32,b:57},
+  {l:"Vezes visto",s:"Soma de todas as publicações",a:89,b:295},
+  {l:"Novos seguidores",s:"Quem começou a seguir",a:1,b:2}
+ ],note:"A página tem 656 seguidores hoje."}
+];
 var CID=[["Nilópolis",32.7],["Rio de Janeiro",29.2],["Mesquita",10.4],["S. J. de Meriti",8],["Nova Iguaçu",6.9]];
 var COR={Story:"#00717a",Reel:"#0a2f35",Carrossel:"#00afb8",Foto:"#b8b9bb"};
 var WD={"19/10":"seg","20/10":"ter","21/10":"qua","22/10":"qui","23/10":"sex","24/10":"sáb","26/10":"seg","27/10":"ter","28/10":"qua","29/10":"qui","30/10":"sex"};
@@ -175,6 +201,12 @@ $("kpis").innerHTML=
  k(best.p,"maior resultado: "+best.f+" de "+best.d);
 function th(x){return x.i?'<a class="thl" href="capas/'+x.i+'.webp" target="_blank" rel="noopener"><img class="th" loading="lazy" src="capas/'+x.i+'.webp" alt="Capa: '+x.t+' de '+x.d+'"></a>':'<div class="th no">sem capa</div>'}
 var mx=Math.max.apply(null,P.map(function(x){return x.p}));
+$("growth").innerHTML=G.map(function(g){
+ return '<div class="blk"><h3>'+g.t+'</h3>'+g.rows.map(function(r){
+  var m=Math.max(r.a,r.b),d=r.b-r.a,pc=r.a>0?Math.round(d/r.a*100):0;
+  var tag=d>0?'<span class="up">+'+pc+'%</span>':(d<0?pc+'%':'igual');
+  return '<div class="r"><div class="l">'+r.l+'<em>'+r.s+'</em></div><div class="bb"><div class="b"><span style="width:'+(r.a/m*100)+'%;background:#b3e7ea"></span></div><div class="b"><span style="width:'+(r.b/m*100)+'%;background:#00717a"></span></div></div><div class="n">'+fmt(r.a)+' → <b>'+fmt(r.b)+'</b><br>'+tag+'</div></div>'}).join("")+
+  '<p class="sub" style="margin:8px 0 0">'+g.note+'</p></div>'}).join("");
 $("bars").innerHTML=P.map(function(x){
  var sub=(x.v?'<br><small>'+x.v+' vezes visto</small>':'')+(x.n?'<br><small>'+x.n+'</small>':'');
  return '<div class="row">'+th(x)+'<div class="n">'+x.d+(x.h?' · '+x.h:'')+'<em>'+x.t+'</em></div>'+
@@ -194,6 +226,7 @@ $("ins").innerHTML=[
  '<b>A foto real de um atendimento (Story de 23/10) chegou a 126 pessoas,</b> bem mais que os Stories de 22/10 (47) e 24/10 (61). Vale testar mais conteúdos do dia a dia da clínica.',
  '<b>O carrossel foi o melhor post do feed.</b> O de 23/10 foi visto 116 vezes por 45 pessoas e continuou crescendo nos dias seguintes.',
  '<b>O Reel de 28/10, feito com fotos, chegou a poucas pessoas</b> (6), contra 26 do Reel de 21/10. Vamos acompanhar os próximos vídeos para entender o que prende mais a atenção.',
+ '<b>O perfil está sendo mais visto, mas os seguidores ainda não aceleraram.</b> As visitas ao perfil do Instagram subiram 30% e o Facebook foi visto 3 vezes mais. Já os novos seguidores ficaram no mesmo ritmo (cerca de 26 a cada 15 dias). Transformar visitas em seguidores é o próximo desafio, e os anúncios e o convite para seguir nos Stories ajudam nisso.',
  '<b>O público é local e feminino.</b> Nilópolis, Rio de Janeiro e Mesquita somam 72% dos seguidores, o que combina com a região onde os anúncios vão aparecer.'
 ].map(function(t){return '<li>'+t+'</li>'}).join("");
 </script>
